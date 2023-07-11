@@ -2,8 +2,86 @@
 
 *{
     font-family: sans-serif;
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    border: solid 1px purple;
+}
+
+body{
+    background-image: url("Thor.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: rgb(30, 30, 30);
+    position: relative;
+    background-size: 100% 100%;
+    height: 98vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+nav{
+    background-color: rgb(30, 30, 30);    
+    color: white;
+    margin: -8px;
+    padding: 8px;
+}
+
+ul{
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    list-style: none;
+}
+
+li{
+    padding:10px 30px 30px 30px;
+    font-size: xx-large;
+    font-weight: bold;
+}
+
+main{
+    margin-left: 50px;
+}
+
+h1{
+    font-size: 120px;
+}
+
+p{
+    max-width: 500px;
+}
+
+@media screen and (min-width:600px){
+    h1{
+        font-size: 35px;
+    }
+    nav{
+        background-color: yellow;    
+        color: black;
+    }
+}
+
+@media screen and (min-width:768px){
+    h1{
+        font-size: 25px;
+    }
+    nav{
+        background-color: lightgreen;    
+        color: black;
+    }
+}
+
+@media screen and (min-width:992px){
+    nav{
+        background-color: red;    
+        color: black;
+    }
+    main{
+        display: flex;
+    }
+}
+
+@media screen and (min-width:1200px){
+    nav{
+        background-color: black;    
+        color: white;
+    }
 }
