@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@200&display=swap');
+
+body{
+    font-family: sans-serif;
+    text-align: center;
+}
+
+header {
+  display: flex;
+  flex-flow: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+main {
+  background-image: url('sea.jpg');
+  background-color: #cccccc;
+  height: 600px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+main div h1{
+  color: white;
+  text-align: center;
+  padding: 70px;
+}
+
+form{
+  display: flex;
+  justify-content: center;
+}
+
+button, input{
+  border: 0px;
+  border-radius: 4px;
+  padding: 8px;
+  margin: 0px 6px 6px 6px;
+}
+
+button, #submit{
+  background-color: cornflowerblue;
+  color: white;
+}
+
+#email{
+  flex-grow: 1;
+  margin-left: 140px;
+}
+
+#submit{
+  padding: 8px 25px;
+  margin-right: 140px;
+}
+
+footer{
+  display: flex;
+  flex-flow: row;
+  justify-content: space-evenly;
+}
+
+img{
+  width: 100px;
+  height: 100px;
+  padding-top: 100px;
+}
+
+p{
+  color: gray;
+}
+
+@media screen and (max-width: 768px) {
+
+  main div h1{
+    padding: 15px;
+  }
+  
+  #email{
+    margin-left: 15px;
+  }
+  
+  #submit{
+    margin-right: 15px;
+  }
+
+}

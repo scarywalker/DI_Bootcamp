@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@200&display=swap');
+
+html {
+    scroll-behavior: smooth;
+  }
+
+body{
+    font-family: sans-serif;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.79);
+}
+
+.bold{
+    font-weight: bold;
+}
+
+.catbreeds{
+    background-color: rgb(174, 174, 0);
+}
+
+h3{
+    text-decoration: underline;
+}
+
+ul li{
+    margin-left: 40px;
+}
+
+ol{
+    list-style-type: upper-roman;
+}
+
+.catsmedia{
+    text-align: center;
+}
+
+img{
+    display: block;
+    width: 50%;
+    border: solid 6px orange;
+    margin-left: auto;
+    margin-right: auto; 
+    border-radius: 6px;
+}
+
+table{
+    margin-left: auto;
+    margin-right: auto; 
+}
+
+th, td{
+    border: solid 1px;
+}
+
+thead{
+    color: red;
+}
+
+tbody:before { /*This creates the space in the table at the end*/
+    line-height:1em;
+    content:"_";
+    color:rgba(0, 0, 0, 0.79);
+    display:block;
+}
+
+td{
+    padding: 20px 4px;
+    text-align: center;    
+}
+
+td.bold{
+    padding: 0px;
+}
