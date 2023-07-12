@@ -3,7 +3,60 @@
 *{
     font-family: sans-serif;
     box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    border: solid 1px purple;
+}
+
+body, aside, main, div{
+    display: flex;
+}
+
+aside, main, div{
+    flex-direction: column;
+}
+
+body{
+    margin: 0px;
+}
+
+hr{
+    margin-left: 0;
+    margin-right: 0;
+}
+
+aside{
+    text-align: center;
+    padding:100px 30px 30px 30px;
+    background-color: rgb(240, 240, 240);
+}
+
+img{
+    width: 200px;
+}
+
+.links{
+    display: flex;
+}
+
+.links div{
+    padding: 20px;
+}
+
+i{
+    font-size: xx-large;
+}
+
+main{
+    padding: 30px;
+    margin-top: 50px;
+}
+
+#skills{
+    flex-direction: row;
+}
+
+ul{    
+    flex-grow: 1;
+}
+
+.bold{
+    font-weight: bold;
 }
