@@ -5,5 +5,31 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    border: solid 1px purple;
+    /* border: solid 1px purple; */
+}
+
+body, .big, .low{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+body{
+    height: 220px;
+    width: 700px;
+}
+
+.big{
+    flex-direction: column;
+}
+
+.low{
+    align-items: center;
+    width: 400px;
+}
+
+.small{
+    height: 50px;
+    width: 50px;
+    border: solid 1px black;
+    background-color: yellow;
 }
