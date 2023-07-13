@@ -1,0 +1,196 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@200&display=swap');
+
+*{
+    font-family: sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    color: antiquewhite;
+    /* border: solid 1px purple; */
+}
+
+html{
+    scroll-behavior: smooth;
+    background-color: rgb(20, 20, 20);
+}
+
+header{
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    background-color: black;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+}
+
+#namepic{
+    display: flex;
+    justify-content: flex-start;
+    height: 100%;
+    align-items: center;
+}
+
+#pic{
+    background-color: aqua;
+    height: 40px;
+    width: 40px;
+    margin: 10px;
+}
+
+#myname{
+    height: fit-content;
+}
+
+#navbar{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    list-style: none;
+    text-decoration: none;
+    height: 100%;
+    margin-right: 10px;
+}
+
+.navitem{
+    padding: 5px;
+}
+
+a{
+    text-decoration: none;
+    color: antiquewhite;
+}
+
+main{
+    padding-top: 100px;    
+    background-color: rgb(20, 20, 20);    
+}
+
+section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 100px;
+}
+
+#bigpic{
+    background-color: aqua;
+    width: 200px;
+    height: 200px;    
+    margin: 40px;
+}
+
+#bigname{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    font-size: 50px;
+    font-weight: bold;
+}
+
+#bigname p{
+    padding: 6px;
+}
+
+#text1, #text2{
+    text-align: center;
+}
+
+.btn{
+    padding: 15px 60px;
+    font-weight: bold;
+}
+
+#knowskills{
+    display: grid;
+    grid-template-columns:1fr 2fr 2fr 1fr;
+
+}
+
+#skills{
+    list-style: none;
+}
+
+.allprojects{
+    display: grid;
+    grid-template-columns:1fr 3fr 2fr 1fr;
+    padding: 40px 0;
+}
+
+.project{
+    text-align: center;
+    margin: 20px;
+}
+
+.verybigpic{
+    background-color: aqua;
+    max-width: 600px;
+    min-width: 350px;
+    aspect-ratio: 2/1; 
+    align-self: center;
+}
+
+#contact{
+    display: grid;
+    grid-template-columns:1fr 3fr 1fr;
+    text-align: center;
+}
+
+#contactform{
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+    padding: 5px;
+    text-align: left;
+}
+
+#contactform *{
+    padding: 15px;
+    margin: 10px 10px 0 10px;
+    border-radius: 5px;
+}
+
+@media screen and (min-width:861px) {
+    #text1, #text2{
+        width: 840px;
+    }
+}
+
+@media screen and (max-width:860px) {
+    #text1, #text2{
+        width: 473px;
+    }
+
+    .allprojects{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .project{
+        text-align: center;
+        margin: 20px;
+    }
+}
+
+@media screen and (max-width:576px) {
+    
+    header{
+        display: flex;
+        justify-content: center;
+    }
+    
+    #namepic{
+        display: none;
+    }
+
+    #bigname{
+        text-align: center;
+        font-size: 35px;
+    }
+
+    #text1, #text2{
+        width: 343px;
+    }
+    
+}
