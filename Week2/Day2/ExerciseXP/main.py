@@ -73,9 +73,9 @@
 #     if age == 200:
 #         break
 #     else: 
-#         if age < 3:
+#         if age <= 3:
 #             price_list.append("free")
-#         elif age < 13:
+#         elif age <= 13:
 #             price_list.append(10)
 #             price += 10
 #         else:
