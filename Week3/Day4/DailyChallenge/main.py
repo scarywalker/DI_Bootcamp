@@ -21,11 +21,16 @@ class Text:
     
     def unique(self): return self.text_dict.keys()
 
-    def
+    @classmethod
+    def from_file(cls,file):
+        with open(file,"r") as strange_file:
+            return cls(strange_file.read())
             
 
 a = 'A good book would sometimes cost as much as a good house'
 
 t = Text(a)
 
-Text.from_file('the_stranger.txt')
+strange = Text.from_file('the_stranger.txt')
+
+print(strange.unique())
