@@ -12,7 +12,3 @@ def menu():
                 print("YOUR WORD :'MEAT''")
                 print("this is a valid English word.")
                 print(f"Anagrams for your word: {ac.get_anagrams(word)}")
-                
-menu()
-
-    
