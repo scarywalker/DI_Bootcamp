@@ -1,0 +1,1 @@
+select * from customers where not first_name = 'Scott'
