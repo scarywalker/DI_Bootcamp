@@ -47,4 +47,6 @@
 --  SELECT COUNT(*) 
 --  FROM FirstTab AS ft WHERE ft.id NOT IN ( SELECT id FROM SecondTab WHERE id IS NOT NULL )
  
- -- wrong it was 2, I don't know why
+-- wrong it was 2, I don't know why
+
+-- conclusion: any check that involves null autoreturns false, maybe even if you check if null == null it will return false
