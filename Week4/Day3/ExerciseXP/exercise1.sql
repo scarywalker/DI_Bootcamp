@@ -1,7 +1,85 @@
+-- exercise 1
+
 -- 1
 -- select name as language from language
 -- 2
--- SELECT film.title, film.description, language.name as language
--- from film join language on film.language_id = language.language_id
+-- SELECT film.title, film.description, language.name as language;
+-- from film join language on film.language_id = language.language_id;
 -- 3
 -- I don't comprehend the question
+-- 4
+-- create table new_film(film_id SERIAL PRIMARY KEY, NAME varchar(50) NOT NULL);
+-- insert into new_film(name) values ('Film 1'),('Film 2'),('Film 3'),('Film 4'),('Film 5'),('Film 6'),('Film 7');
+-- 5
+-- CREATE TABLE customer_review (
+--     review_id SERIAL PRIMARY KEY,
+--     film_id INT REFERENCES new_film(film_id) ON DELETE CASCADE,
+--     language_id INT REFERENCES language(language_id),
+--     title VARCHAR(255),
+--     score SMALLINT CHECK (score >= 1 AND score <= 10),
+--     review_text TEXT,
+--     last_update TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+-- );
+-- 6
+-- INSERT INTO customer_review (film_id, language_id, title, score, review_text)
+-- VALUES (1, 2, 'Great Movie!', 9, 'This movie was fantastic. The acting and story were top-notch.');
+-- INSERT INTO customer_review (film_id, language_id, title, score, review_text)
+-- VALUES (3, 1, 'Enjoyable Film', 8, 'I really enjoyed this movie. The visuals were stunning and the plot was engaging.');
+-- 7
+-- DELETE FROM new_film WHERE film_id = 1;
+-- exercise2
+
+-- 1
+-- UPDATE film SET language_id = 3 WHERE film_id IN (1, 2);
+-- 2
+-- The Fk's for customer table is the adress_id key, referencing the adress table.
+-- The values you insert in the customer table for address_id must match the values in the address_id columns of the address table.
+-- 3
+-- DROP TABLE customer_review;
+-- only if you want to not lose the data as no other table depends on "customer_review"
+-- 4
+-- SELECT COUNT(*) AS outstanding_rentals FROM rental WHERE return_date > last_update or  return_date is null;
+-- 5
+-- SELECT film.film_id, film.title, film.rental_rate
+-- FROM rental
+--     JOIN inventory ON rental.inventory_id = inventory.inventory_id
+--     JOIN film ON inventory.film_id = film.film_id
+-- WHERE rental.return_date IS NULL ORDER BY film.rental_rate DESC
+-- LIMIT 30;
+-- 6
+-- 6.1
+-- select * from film where description ilike '%sumo%' AND film_id IN (SELECT film_id FROM film_actor WHERE actor_id IN (SELECT actor_id FROM actor WHERE first_name = 'Penelope' AND last_name = 'Monroe'));
+-- 6.2
+-- select * from film where lenght < 60 and (rating = 'R') and film_id in (select film_id from film_category where category_id in (select category_id from category where name = 'Documentary' ))
+-- its not working, the problem is with the lenght I dont know why it says 'ERROR:  column film.lenght does not exist', THE COLUMN EXISTS
+-- 6.3
+-- SELECT film_id, title, description, release_year FROM film
+-- WHERE rental_rate > '4.00'
+--     AND film_id IN (SELECT film_id FROM inventory WHERE inventory_id 
+-- 		IN (SELECT inventory_id FROM rental WHERE rental_id
+-- 			IN (SELECT rental_id FROM payment 
+-- 			WHERE customer_id = (SELECT customer_id FROM customer WHERE LOWER(first_name) = 'matthew' AND LOWER(last_name) = 'mahan'))
+--         	AND return_date > '2005-07-28'
+--             AND return_date < '2005-08-01'));
+-- 6.4
+-- SELECT film_id,
+--     title,
+--     description,
+--     release_year,
+--     replacement_cost
+-- FROM film
+-- WHERE (
+--         LOWER(title) LIKE '%boat%'
+--         OR LOWER(description) LIKE '%boat%'
+--     )
+--     AND replacement_cost > 20.00
+--     AND film_id IN (
+--         SELECT film_id
+--         FROM rental
+--         WHERE customer_id = (
+--                 SELECT customer_id
+--                 FROM customer
+--                 WHERE LOWER(first_name) = 'matthew'
+--                     AND LOWER(last_name) = 'mahan'
+--             )
+--     );
