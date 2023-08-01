@@ -1,0 +1,95 @@
+-- part 1
+
+-- 1
+-- create table customer (
+-- 	id SERIAL PRIMARY KEY,
+-- 	first_name varchar(50) NOT NULL,
+--  last_name varchar(100) NOT NULL
+-- );
+-- create table customer_profile (
+-- 	id SERIAL PRIMARY KEY,
+-- 	isLoggedIn BOOLEAN DEFAULT false,
+-- 	customer_id INT UNIQUE REFERENCES Customer(id)
+-- );
+-- 2
+-- insert into customer(first_name, last_name) values ('John', 'Doe'),('Jerome', 'Lalu'),('Lea', 'Rive');
+-- 3
+-- insert into customer_profile(isLoggedIn, customer_id)
+-- values 
+-- 	('TRUE', (select id from customer where first_name = 'John')),
+-- 	('FALSE', (select id from customer where first_name = 'Jerome'));
+-- 4
+-- select customer.first_name from customer 
+-- join customer_profile ON customer.id = customer_profile.id 
+-- where customer_profile.isLoggedIn = 'TRUE'
+
+-- select customer.first_name, customer_profile.isLoggedIn from customer 
+-- left join customer_profile ON customer.id = customer_profile.id 
+
+-- select count  (isLoggedIn != 'TRUE') from customer_profile
+
+-- part 2
+
+-- 1
+-- create table Book (
+-- 	book_id SERIAL PRIMARY KEY,
+-- 	title varchar(100) NOT NULL,
+--  	author varchar(150) NOT NULL
+-- );
+-- 2
+-- insert into Book(title, author) values ('Alice In Wonderland', 'Lewis Carroll'),('Harry Potter', 'J.K Rowling'),('To kill a mockingbird', 'Harper Lee');
+--3
+-- create table Student (
+-- 	student_id SERIAL PRIMARY KEY,
+-- 	name varchar(100) NOT NULL unique,
+--  age smallint NOT NULL
+-- );
+-- 4
+-- insert into Student(name, age) 
+-- values ('John', 12),('Lera', 11),('Patrick', 10),('Bob', 14);
+-- 5
+-- create table Library (
+-- 	book_fk_id int REFERENCES book(book_id) ON DELETE CASCADE ON UPDATE CASCADE,
+-- 	student_fk_id int REFERENCES student(student_id) ON DELETE CASCADE ON UPDATE CASCADE,
+-- 	borrowed_date date
+-- );
+-- 6
+-- INSERT INTO library (book_fk_id, student_fk_id, borrowed_date)
+-- VALUES 
+-- 	((SELECT book_id FROM book WHERE title = 'Alice In Wonderland'),
+-- 	(SELECT student_id FROM student WHERE name = 'John'),
+--     '2022-02-15'
+-- 	),
+--     ((SELECT book_id FROM book WHERE title = 'To kill a mockingbird'),
+-- 	(SELECT student_id FROM student WHERE name = 'Bob'),
+--     '2021-03-03'
+-- 	),
+--     ((SELECT book_id FROM book WHERE title = 'Alice In Wonderland'),
+--     SELECT student_id FROM student WHERE name = 'Lera'),
+--     '2021-05-23'
+--     ),
+--     ((SELECT book_id FROM book WHERE title = 'Harry Potter'),
+--     (SELECT student_id FROM student WHERE name = 'Bob'),
+--     '2021-08-12'
+--     );
+-- 7
+-- 7.1
+-- select * from Library
+-- 7.2
+-- SELECT student.name AS student_name, book.title AS book_title FROM library
+--     JOIN student ON library.student_fk_id = student.student_id
+--     JOIN book ON library.book_fk_id = book.book_id;
+-- 7.3
+-- SELECT AVG(age) AS average_age FROM student
+-- WHERE student_id IN (
+-- 	SELECT student_fk_id
+-- 	FROM library
+--     WHERE book_fk_id IN (
+-- 		SELECT book_id
+--         FROM book
+--         WHERE title = 'Alice In Wonderland'
+--             )
+--     );
+-- 7.4
+-- DELETE FROM student WHERE student_id = chosen_student_id;
+-- all entries in the library related to said student desapear
