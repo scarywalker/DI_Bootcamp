@@ -1,0 +1,7 @@
+-- 1
+-- select name as language from language
+-- 2
+-- SELECT film.title, film.description, language.name as language
+-- from film join language on film.language_id = language.language_id
+-- 3
+-- I don't comprehend the question
