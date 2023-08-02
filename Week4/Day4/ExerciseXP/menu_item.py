@@ -4,49 +4,45 @@ USERNAME = 'postgres'
 PASSWORD = 'rererer1R'
 DATABASE = 'Exercise-day4'
 
-# connection = psycopg2.connect(host=HOSTNAME, user=USERNAME, password=PASSWORD, dbname=DATABASE )
-# cursor = connection.cursor()
-# query = "DELETE FROM Menu_Items WHERE item_id in (1,2,3,4,5,6,7,8,9,10,11,12,13,14);"
-# cursor.execute(query)
-# connection.commit()
-# connection.close()
-
-# connection = psycopg2.connect(host=HOSTNAME, user=USERNAME, password=PASSWORD, dbname=DATABASE )
-# cursor = connection.cursor()
-# query = "SELECT * FROM Menu_Items LIMIT 20;"
-# cursor.execute(query)
-# results = cursor.fetchall()
-# connection.close()
-# for item in results: print(item)
+# For clarification, I did not follow the exercise instructions as I found them unclear. As I understood, possibly incorrectly, the exercise demands the superfluous creation of an object for each column in the database, with all the same information, making the database redundant. Since the exercise is about using Python with databases, I decided not to create objects so that the database would not be pointless.
 
 class MenuItem:
     def __init__(self,name:str,price:int) -> None:
         self.name = name
         self.price = price
 
-    def save(self):
+    @classmethod
+    def save(cls):
         """adds the obj to the database"""
+        name = input("Gime a name: ")
+        price = input("Gime a price: ")
         connection = psycopg2.connect(host=HOSTNAME, user=USERNAME, password=PASSWORD, dbname=DATABASE )
         cursor = connection.cursor()
-        query = f"insert into Menu_Items(item_name,item_price) VALUES('{self.name}',{self.price});"
+        query = f"insert into Menu_Items(item_name,item_price) VALUES('{name}',{price});"
         cursor.execute(query)
         connection.commit()
         connection.close()
 
-    def delete(self):
+    @staticmethod
+    def delete():
         """removes the obj to the database"""
+        name = input("Gime a name: ")
         connection = psycopg2.connect(host=HOSTNAME, user=USERNAME, password=PASSWORD, dbname=DATABASE )
         cursor = connection.cursor()
-        query = f"DELETE FROM Menu_Items WHERE item_name = '{self.name}';"
+        query = f"DELETE FROM Menu_Items WHERE item_name = '{name}';"
         cursor.execute(query)
         connection.commit()
         connection.close()
 
-    def update(self,new_item_name:str,new_item_price:int):
+    @staticmethod
+    def update():        
         """changes the obj atributes, also in the database"""
+        old_name = input("Gime your old name: ")
+        name = input("Gime a new name: ")
+        price = input("Gime a new price: ")
         connection = psycopg2.connect(host=HOSTNAME, user=USERNAME, password=PASSWORD, dbname=DATABASE )
         cursor = connection.cursor()
-        query = f"UPDATE Menu_Items SET item_name = '{new_item_name}',item_price = '{new_item_price}' WHERE item_name = '{self.name}';"
+        query = f"UPDATE Menu_Items SET item_name = '{name}',item_price = '{price}' WHERE item_name = '{old_name}';"
         cursor.execute(query)
         connection.commit()
         connection.close()
@@ -56,8 +52,9 @@ class MenuManager:
         pass
 
     @staticmethod
-    def get_by_name(name:str):
+    def get_by_name():
         """returns first menu item with the corresponding name"""
+        name = input("Gime a name: ")
         connection = psycopg2.connect(host=HOSTNAME, user=USERNAME, password=PASSWORD, dbname=DATABASE )
         cursor = connection.cursor()
         query = f"SELECT * FROM Menu_Items WHERE item_name = '{name}';"
@@ -78,9 +75,3 @@ class MenuManager:
         connection.close()
         return results
 
-a = MenuItem('a',1)
-b = MenuItem('b',2)
-c = MenuItem('c',3)
-d = MenuItem('d',4)
-e = MenuItem('e',5)
-f = MenuItem('f',6)
