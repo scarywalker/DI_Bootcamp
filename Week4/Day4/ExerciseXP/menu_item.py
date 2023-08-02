@@ -1,7 +1,7 @@
 import psycopg2
 HOSTNAME = 'localhost'
 USERNAME = 'postgres'
-PASSWORD = 'rererer1R'
+PASSWORD = ''
 DATABASE = 'Exercise-day4'
 
 # For clarification, I did not follow the exercise instructions as I found them unclear. As I understood, possibly incorrectly, the exercise demands the superfluous creation of an object for each column in the database, with all the same information, making the database redundant. Since the exercise is about using Python with databases, I decided not to create objects so that the database would not be pointless.
