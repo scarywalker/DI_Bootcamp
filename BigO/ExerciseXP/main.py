@@ -19,6 +19,8 @@
 
 # timer(function1())
 
+# O(n)
+
 # @timer
 # def function2(n):
 #     for i in range(n):
@@ -26,6 +28,8 @@
 #             print(i, j)
 
 # timer(function2(247))
+
+# O(n^2)
 
 # @timer
 # def function3(n):
@@ -35,6 +39,8 @@
 #         print(i)
 
 # timer(function3(247745747))
+
+# O(1)
 
 # Exercise 2
 
