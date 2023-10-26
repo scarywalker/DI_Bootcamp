@@ -85,9 +85,8 @@ for (let robot of robots) {
 
 const searchInput = document.getElementById("searchInput");
 
-// Function to filter and display matching robots
 function filterAndDisplayRobots() {
-  const searchTerm = searchInput.value.toLowerCase(); // Get the search term and convert it to lowercase
+  const searchTerm = searchInput.value.toLowerCase();
 
   const filteredRobots = robots.filter((robot) => {
     const robotName = robot.name.toLowerCase();
