@@ -96,8 +96,11 @@ function filterAndDisplayRobots() {
   for (let robot of robots) {
     const container = document.getElementById(`robo${robot.id}`);
     const robotName = robot.name.toLowerCase();
+    const norobot = document.getElementById(`robo11`)
+    norobot.style.display = "flex"
     if (filteredRobots.includes(robot)) {
       container.style.display = "flex";
+      norobot.style.display = "none"
     } else {
       container.style.display = "none";
     }
