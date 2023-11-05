@@ -1,0 +1,52 @@
+body {
+    background-color: black;  
+    background-image: url("https://i.giphy.com/media/TxVVB6PfWMjE4/200.webp");  
+    font-family: 'Helvetica Neue';  
+    color: yellow;
+    text-align: center;
+}  
+  
+.logo {
+  
+    background: url("https://i.dlpng.com/static/png/253278_thumb.png") center center no-repeat;
+    width: 400px;
+    height: 300px;
+    margin:  0 auto;  
+    margin-top: -20px;
+}  
+  
+.container{  
+    border: 2px solid yellow;
+    width: 500px;
+    height: 300px;  
+    margin: 0 auto;
+}  
+  
+#button{
+      margin-top: 30px;  
+      border: 2px solid yellow;
+      border-radius: 5px;  
+      width: 160px;
+      height: 40px;  
+      font-weight: bold;
+      font-size: 20px;  
+      cursor: pointer;
+}  
+  
+button:focus {  
+      outline:0;
+}
+  
+#name{
+      color: white;  
+      font-size: 30px;      
+}
+
+p{
+      color: white;
+      font-size: 20px;
+}
+  
+  
+  
+  
