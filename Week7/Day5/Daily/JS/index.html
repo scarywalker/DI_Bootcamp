@@ -5,21 +5,23 @@
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
+	<h1>Currency Converter</h1>
+    <form id="convert">
+        <label for="from">From:</label>
+        <select id="from" name="from">
+        </select>
 
-	<div class="wrapper">
+        <label for="to">To:</label>
+        <select id="to" name="to">
+        </select>
 
-		<div class="container">
-			<p id="name"></p>
-			<p id="height"></p>
-			<p id="gender"></p>
-			<p id="birth-year"></p>
-			<p id="home-world"></p>			
-		</div>
+        <label for="amount">Amount:</label>
+        <input type="text" id="amount" name="amount" placeholder="Enter amount">
 
-		<button type="button" id="button" name="button">Find Someone</button>
-	</div>
-	
-<script type="text/javascript" src="script.js"></script>
+        <input type="submit" value="Convert">
+    </form>
+    <h1 id="response"></h1>
 
+    <script type="text/javascript" src="script.js"></script>
 </body>
 </html>
