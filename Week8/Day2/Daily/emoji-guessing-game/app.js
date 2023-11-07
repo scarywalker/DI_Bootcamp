@@ -72,3 +72,6 @@ function shuffleArray(array) {
   }
   return array;
 }
+
+
+// dont know what is the problem, pls halp
