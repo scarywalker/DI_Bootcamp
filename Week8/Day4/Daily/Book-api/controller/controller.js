@@ -1,14 +1,14 @@
 const {
-  _getAllPosts,
-  _getOnePost,
-  _addPost,
-  _updatePost,
-  _deletePost,
-} = require("../models/posts.model.js");
+  _getAllBooks,
+  _getOneBook,
+  _addBook,
+  _updateBook,
+  _deleteBook,
+} = require("../models/Books.model.js");
 
-const getPosts = async (req, res) => {
+const getBooks = async (req, res) => {
   try {
-    const data = await _getAllPosts();
+    const data = await _getAllBooks();
     res.json(data);
   } catch (e) {
     console.log(e);
@@ -16,14 +16,14 @@ const getPosts = async (req, res) => {
   }
 };
 
-const getPostId = async (req, res) => {
+const getBookId = async (req, res) => {
   console.log("params=>", req.params);
   const { id } = req.params;
 
   try {
-    const data = await _getOnePost(id);
+    const data = await _getOneBook(id);
     if (data.length === 0)
-      return res.status(404).json({ msg: "No Post Found" });
+      return res.status(404).json({ msg: "No Book Found" });
     res.json(data);
   } catch (e) {
     console.log(e);
@@ -31,37 +31,37 @@ const getPostId = async (req, res) => {
   }
 };
 
-const addPost = async (req, res) => {
+const addBook = async (req, res) => {
   console.log("body=>", req.body);
   const { title, content } = req.body;
   try {
-    await _addPost(title, content);
-    getPosts(req, res);
+    await _addBook(title, content);
+    getBooks(req, res);
   } catch (e) {
     console.log(e);
     res.status(500).json({ msg: "Internal Server Error" });
   }
 };
 
-const deletePost = async (req, res) => {
+const deleteBook = async (req, res) => {
   const { id } = req.params;
 
   try {
-    await _deletePost(id);
-    getPosts(req, res);
+    await _deleteBook(id);
+    getBooks(req, res);
   } catch (e) {
     console.log(e);
     res.status(500).json({ msg: "Internal Server Error" });
   }
 };
 
-const updatePost = async (req, res) => {
+const updateBook = async (req, res) => {
   const { id } = req.params;
   const { title, content } = req.body;
 
   try {
-    await _updatePost(id, title, content);
-    getPosts(req, res);
+    await _updateBook(id, title, content);
+    getBooks(req, res);
   } catch (e) {
     console.log(e);
     res.status(500).json({ msg: "Internal Server Error" });
@@ -69,9 +69,9 @@ const updatePost = async (req, res) => {
 };
 
 module.exports = {
-  getPosts,
-  getPostId,
-  addPost,
-  deletePost,
-  updatePost,
+  getBooks,
+  getBookId,
+  addBook,
+  deleteBook,
+  updateBook,
 };
