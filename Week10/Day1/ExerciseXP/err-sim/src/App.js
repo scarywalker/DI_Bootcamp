@@ -8,7 +8,7 @@ class BuggyCounter extends React.Component {
     this.state = { counter: 0 };
   }
   handleClick = () => {
-    if (this.state.counter === 5) {
+    if (this.state.counter === 4) {
       throw new Error("I crashed");
     }
     this.setState((prevState) => ({
