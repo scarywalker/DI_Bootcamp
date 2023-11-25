@@ -4,20 +4,30 @@ const url = "https://gorest.co.in/public/v2/users";
 
 function UseEffectFetch() {
   const [users, setUsers] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
+  const [isError, setIsError] = useState(false);
 
   const getUsers = async () => {
-    const response = await fetch(url);
-    const usersData = await response.json();
-    console.log(usersData);
-    setUsers(usersData);
+    try {
+      const response = await fetch(url);
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+      const usersData = await response.json();
+      setUsers(usersData);
+      setIsLoading(false);
+    } catch {
+      setIsError(true);
+    }
   };
 
   useEffect(() => {
     getUsers();
   }, []);
 
-  if (loading) return <h1>LOADIND...</h1>;
+  if (isLoading) return <h1>LOADING...</h1>;
+
+  if (isError) return <h1>ERROR</h1>;
 
   return (
     <div>
@@ -26,10 +36,9 @@ function UseEffectFetch() {
         {users.map((user) => {
           const { id, email, gender, name, status } = user;
           return (
-            <li>
+            <li key={id}>
               <h6>
-                ID: {id} EMAIL: {email} GENDER:{gender} NAME: {name} STATUS:{" "}
-                {status}
+                EMAIL: {email} GENDER:{gender} NAME: {name} STATUS: {status}
               </h6>
             </li>
           );
