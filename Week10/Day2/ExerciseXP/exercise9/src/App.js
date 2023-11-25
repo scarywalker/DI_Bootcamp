@@ -1,6 +1,8 @@
 import React from "react";
 import "./app.css";
-import ControlledInputs from "./ControlledInputs";
+import UseReducer from "./UseReducer";
+// import UseRefBasics from "./UseRefBasics";
+// import ControlledInputs from "./ControlledInputs";
 // import Cleaneup from "./Cleaneup";
 // import Booklist from "./Booklist";
 // import UseStateExample from "./UseStateExample";
@@ -15,7 +17,9 @@ export default function App() {
       {/* <UseEffectExample /> */}
       {/* <UseEffectFetch /> */}
       {/* <Cleaneup/>  */}
-      <ControlledInputs />
+      {/* <ControlledInputs /> */}
+      {/* <UseRefBasics /> */}
+      <UseReducer />
     </>
   );
 }
