@@ -1,6 +1,8 @@
 import React from "react";
 import "./app.css";
-import UseReducer from "./UseReducer";
+// import ContextApi from "./ContextApi";
+// import PropDirlling from "./PropDirlling";
+// import UseReducer from "./UseReducer";
 // import UseRefBasics from "./UseRefBasics";
 // import ControlledInputs from "./ControlledInputs";
 // import Cleaneup from "./Cleaneup";
@@ -19,7 +21,9 @@ export default function App() {
       {/* <Cleaneup/>  */}
       {/* <ControlledInputs /> */}
       {/* <UseRefBasics /> */}
-      <UseReducer />
+      {/* <UseReducer /> */}
+      {/* <PropDirlling/> */}
+      {/* <ContextApi /> */}
     </>
   );
 }
